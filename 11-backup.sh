@@ -37,7 +37,7 @@ if [ ! -d "$SOURCE_DIR" ]; then
     exit 1
 fi
 
-if [ ! -d "$DEST_DIR"]; then
+if [ ! -d "$DEST_DIR" ]; then
     log  "$R Source directory: $DEST_DIR not exists. $N"
     exit 1
 fi
