@@ -33,11 +33,11 @@ if [ $# -lt 2 ]; then
 fi
 
 if [ ! -d "$SOURCE_DIR" ]; then
-    log -e "$R Source directory: $SOURCE_DIR not exists. $N"
-    exist 1
+    log "$R Source directory: $SOURCE_DIR not exists. $N"
+    exit 1
 fi
 
 if [ ! -d "$DEST_DIR"]; then
-    log -e "$R Source directory: $DEST_DIR not exists. $N"
-    exist 1
+    log  "$R Source directory: $DEST_DIR not exists. $N"
+    exit 1
 fi
