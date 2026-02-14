@@ -41,3 +41,9 @@ if [ ! -d "$DEST_DIR" ]; then
     log  "$R Source directory: $DEST_DIR not exists. $N"
     exit 1
 fi
+
+
+### Find the files
+FILES=$(find "$SOURCE_DIR" -name "*.log" -type f -mtime +$DAYS)
+
+echo "$FILES"
