@@ -9,7 +9,7 @@ Y="\e[33m"
 N="\e[0m"
 SOURCE_DIR=$1
 DEST_DIR=$2
-DAYS=${3:-14} # 14 days is the default value, if the user not supplied
+DAYS=${3:0} # 14 days is the default value, if the user not supplied
 
 log(){
     echo -e "$(date "+%Y-%m-%d %H:%M:%S") | $1" | tee -a $LOGS_FILE
