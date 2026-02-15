@@ -22,7 +22,7 @@ do
     #echo "$PARTITION"
 
     if [ "$USAGE" -ge "$USAGE_THRESHOLD" ]; then
-        MESSAGE+="High Disk usage on "$PARTITION": $USAGE% </n>"
+        MESSAGE+="High Disk usage on "$PARTITION": $USAGE% "</n>
     fi
 done <<< $DISK_USAGE
 
