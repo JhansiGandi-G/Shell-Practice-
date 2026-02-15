@@ -9,7 +9,7 @@ Y="\e[33m"
 N="\e[0m"
 SOURCE_DIR=$1
 DEST_DIR=$2
-DAYS=${3:0} # 14 days is the default value, if the user not supplied
+#DAYS=${3:0} # 14 days is the default value, if the user not supplied
 
 log(){
     echo -e "$(date "+%Y-%m-%d %H:%M:%S") | $1" | tee -a $LOGS_FILE
@@ -44,12 +44,12 @@ fi
 
 
 ### Find the files
-FILES=$(find "$SOURCE_DIR" -name "*.log" -type f -mtime +$DAYS)
+FILES=$(find "$SOURCE_DIR" -name "*.log" -type f)
 
 log "Backup started"
 log "Source Directory: $SOURCE_DIR"
 log "Destination Directory: $DEST_DIR"
-log "Days: $DAYS"
+#log "Days: $DAYS"
 
 if [ -z "${FILES}" ]; then
     log "No files to archieve ... $Y Skipping $N"
@@ -59,7 +59,7 @@ else
     TIMESTAMP=$(date +%F-%H-%M-%S)
     ZIP_FILE_NAME="$DEST_DIR/app-logs-$TIMESTAMP.tar.gz"
     log "Archieve name: $ZIP_FILE_NAME"
-    tar -zcvf $ZIP_FILE_NAME $(find $SOURCE_DIR -name "*.log" -type f -mtime +$DAYS)
+    tar -zcvf $ZIP_FILE_NAME $(find $SOURCE_DIR -name "*.log" -type f)
 
     # Check archieve is success or not
     if [ -f $ZIP_FILE_NAME ]; then
